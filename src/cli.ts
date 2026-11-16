@@ -7,12 +7,12 @@ import { captureProcessActor } from "./actor.js";
 import { recordSpaceAccess } from "./witness.js";
 
 function usage(): never {
-  console.error(`blake-space-access — personal-space FS witness
+  console.error(`blake-witness — personal-space FS witness
 
 Usage:
-  blake-space-access recent --dir <spaceRoot> [--limit N]
-  blake-space-access record --dir <spaceRoot> --space <id> --op <op> [--path rel]
-  blake-space-access whoami
+  blake-witness recent --dir <spaceRoot> [--limit N]
+  blake-witness record --dir <spaceRoot> --space <id> --op <op> [--path rel]
+  blake-witness whoami
 `);
   process.exit(2);
 }

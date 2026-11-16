@@ -1,15 +1,19 @@
 {
-  "name": "blake-space-access",
-  "version": "0.1.0",
-  "description": "Witness who or what touched a personal space on disk — process, OS user, agent, or host — with a durable FS audit log. Companion to blake-policy-agent.",
+  "name": "blake-witness",
+  "version": "0.2.0",
+  "description": "Witness who or what touched a personal space on disk — process, OS user, agent, or host — with a durable FS audit log. Part of blake-guard.",
   "type": "module",
-  "main": "./src/index.ts",
-  "types": "./src/index.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./src/index.ts"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
   },
   "bin": {
-    "blake-space-access": "./dist/cli.js"
+    "blake-witness": "dist/cli.js"
   },
   "files": [
     "dist",
@@ -20,6 +24,7 @@
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json && chmod +x dist/cli.js",
+    "prepare": "npm run build",
     "prepublishOnly": "npm test",
     "test": "npm run build && node --import tsx --test test/*.test.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit"
@@ -30,24 +35,16 @@
   "license": "Apache-2.0",
   "private": false,
   "publishConfig": {
-    "access": "public",
-    "main": "./dist/index.js",
-    "types": "./dist/index.d.ts",
-    "exports": {
-      ".": {
-        "types": "./dist/index.d.ts",
-        "import": "./dist/index.js"
-      }
-    }
+    "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ndblk3/blake-space-access.git"
+    "url": "git+https://github.com/ndblk3/blake-witness.git"
   },
   "bugs": {
-    "url": "https://github.com/ndblk3/blake-space-access/issues"
+    "url": "https://github.com/ndblk3/blake-witness/issues"
   },
-  "homepage": "https://bl4k3.com/space-access",
+  "homepage": "https://bl4k3.com/witness",
   "keywords": [
     "agents",
     "filesystem",

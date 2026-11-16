@@ -1,4 +1,4 @@
-# Integrating blake-space-access
+# Integrating blake-witness
 
 ## Host contract
 
@@ -14,7 +14,7 @@
 import {
   createFsAccessLog,
   withSpaceAccess,
-} from "blake-space-access";
+} from "blake-witness";
 
 export async function readSpaceFile(spaceRoot: string, spaceId: string, rel: string) {
   const log = createFsAccessLog(spaceRoot);
@@ -34,7 +34,7 @@ export async function readSpaceFile(spaceRoot: string, spaceId: string, rel: str
 ## Optional gate
 
 ```ts
-import { captureProcessActor, evaluateSpaceAccess } from "blake-space-access";
+import { captureProcessActor, evaluateSpaceAccess } from "blake-witness";
 
 const decision = evaluateSpaceAccess(captureProcessActor(), {
   users: ["ubuntu", "blake"],
